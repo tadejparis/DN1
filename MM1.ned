@@ -13,7 +13,19 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-network TorrentNetwork
+network MM1
 {
-
+    submodules:
+        source: mySource {
+            @display("p=50,70");
+        }
+        queue: myQueue {
+            @display("p=202,70");
+        }
+        sink: mySink {
+            @display("p=386,70");
+        }
+    connections:
+        source.out --> queue.in++;
+        queue.out --> sink.in++;
 }

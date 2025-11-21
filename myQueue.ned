@@ -13,7 +13,15 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-network TorrentNetwork
+simple myQueue
 {
-
+    parameters:
+        @display("i=block/queue");
+        
+        int capacity = default(100);   
+        volatile double serviceTime @unit(s) = default( truncnormal(3s,2s) );
+      
+    gates:
+        input in[];
+        output out;
 }

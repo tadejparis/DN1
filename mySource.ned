@@ -13,7 +13,17 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-network TorrentNetwork
+simple mySource
 {
-
+    parameters:
+        @display("i=block/source");
+        int maxJobs = default(100);
+        int numJobs = default(2);               // number of jobs to be generated (-1 means no limit)
+        volatile double interArrivalTime @unit(s) = default(uniform(0s,3s)); // time between generated jobs
+        double startTime @unit(s) = default(10 s); // when the module sends out the first job
+        double stopTime @unit(s) = default(3600s); // when the module stops the job generation (-1 means no limit)
+ 
+        
+    gates:
+        output out;
 }

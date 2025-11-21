@@ -13,7 +13,10 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-network TorrentNetwork
+simple mySink
 {
-
+    parameters:
+        @display("i=block/sink");
+    gates:
+        input in[];
 }
